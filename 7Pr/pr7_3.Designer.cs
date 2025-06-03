@@ -206,10 +206,10 @@
         #endregion
         private Button buttonResult;
         private Button buttonReset;
-        private Label label3;
+        //private Label label3;
         private TextBox textBoxSecond;
-        private Label label4;
-        private TextBox textBoxEnd;
+        //private Label label4;
+        //private TextBox textBoxEnd;
         private Label label5;
         private FlowLayoutPanel flowLayoutPanel2;
         private FlowLayoutPanel flowLayoutPanel3;

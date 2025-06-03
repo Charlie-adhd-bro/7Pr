@@ -1,6 +1,6 @@
 ﻿namespace _7Pr
 {
-    partial class Pr7_4
+    partial class pr7_6
     {
         /// <summary>
         /// Required designer variable.
@@ -30,13 +30,11 @@
         {
             buttonResult = new Button();
             buttonReset = new Button();
-            textBoxSecond = new TextBox();
             label5 = new Label();
             flowLayoutPanel2 = new FlowLayoutPanel();
             flowLayoutPanel3 = new FlowLayoutPanel();
             label2 = new Label();
-            textBoxFirst = new TextBox();
-            label1 = new Label();
+            textBoxInput = new TextBox();
             flowLayoutPanel5 = new FlowLayoutPanel();
             buttonBack = new Button();
             labelResult = new Label();
@@ -67,15 +65,6 @@
             buttonReset.UseVisualStyleBackColor = true;
             buttonReset.Click += buttonReset_Click;
             // 
-            // textBoxSecond
-            // 
-            textBoxSecond.Location = new Point(16, 111);
-            textBoxSecond.Margin = new Padding(6);
-            textBoxSecond.Name = "textBoxSecond";
-            textBoxSecond.ScrollBars = ScrollBars.Vertical;
-            textBoxSecond.Size = new Size(403, 33);
-            textBoxSecond.TabIndex = 10;
-            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -83,9 +72,9 @@
             label5.Location = new Point(25, 21);
             label5.Margin = new Padding(6, 0, 6, 0);
             label5.Name = "label5";
-            label5.Size = new Size(204, 25);
+            label5.Size = new Size(263, 25);
             label5.TabIndex = 3;
-            label5.Text = "Сравнение двух строк";
+            label5.Text = "Вывод символьного массива";
             label5.TextAlign = ContentAlignment.TopCenter;
             // 
             // flowLayoutPanel2
@@ -104,9 +93,7 @@
             // 
             flowLayoutPanel3.AutoSize = true;
             flowLayoutPanel3.Controls.Add(label2);
-            flowLayoutPanel3.Controls.Add(textBoxFirst);
-            flowLayoutPanel3.Controls.Add(label1);
-            flowLayoutPanel3.Controls.Add(textBoxSecond);
+            flowLayoutPanel3.Controls.Add(textBoxInput);
             flowLayoutPanel3.Controls.Add(flowLayoutPanel5);
             flowLayoutPanel3.Controls.Add(labelResult);
             flowLayoutPanel3.Dock = DockStyle.Fill;
@@ -122,30 +109,20 @@
             label2.Location = new Point(16, 10);
             label2.Margin = new Padding(6, 0, 6, 0);
             label2.Name = "label2";
-            label2.Size = new Size(215, 25);
+            label2.Size = new Size(131, 25);
             label2.TabIndex = 15;
-            label2.Text = "Введите первую строку";
+            label2.Text = "Введите текст";
             label2.TextAlign = ContentAlignment.TopCenter;
             // 
-            // textBoxFirst
+            // textBoxInput
             // 
-            textBoxFirst.Location = new Point(16, 41);
-            textBoxFirst.Margin = new Padding(6);
-            textBoxFirst.Name = "textBoxFirst";
-            textBoxFirst.ScrollBars = ScrollBars.Vertical;
-            textBoxFirst.Size = new Size(403, 33);
-            textBoxFirst.TabIndex = 14;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(16, 80);
-            label1.Margin = new Padding(6, 0, 6, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(218, 25);
-            label1.TabIndex = 13;
-            label1.Text = "Введите  вторую строку";
-            label1.TextAlign = ContentAlignment.TopCenter;
+            textBoxInput.Location = new Point(16, 41);
+            textBoxInput.Margin = new Padding(6);
+            textBoxInput.Multiline = true;
+            textBoxInput.Name = "textBoxInput";
+            textBoxInput.ScrollBars = ScrollBars.Vertical;
+            textBoxInput.Size = new Size(403, 90);
+            textBoxInput.TabIndex = 14;
             // 
             // flowLayoutPanel5
             // 
@@ -153,7 +130,7 @@
             flowLayoutPanel5.Controls.Add(buttonResult);
             flowLayoutPanel5.Controls.Add(buttonReset);
             flowLayoutPanel5.Controls.Add(buttonBack);
-            flowLayoutPanel5.Location = new Point(13, 153);
+            flowLayoutPanel5.Location = new Point(13, 140);
             flowLayoutPanel5.Name = "flowLayoutPanel5";
             flowLayoutPanel5.Padding = new Padding(10);
             flowLayoutPanel5.Size = new Size(331, 61);
@@ -174,14 +151,14 @@
             // 
             labelResult.AutoSize = true;
             labelResult.Dock = DockStyle.Top;
-            labelResult.Location = new Point(353, 150);
+            labelResult.Location = new Point(353, 137);
             labelResult.Margin = new Padding(6, 0, 6, 0);
             labelResult.Name = "labelResult";
             labelResult.Size = new Size(0, 25);
             labelResult.TabIndex = 11;
             labelResult.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // Pr7_3
+            // pr7_6
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -190,9 +167,9 @@
             Controls.Add(flowLayoutPanel2);
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Margin = new Padding(5);
-            Name = "Pr7_3";
+            Name = "pr7_6";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Pr7_3";
+            Text = "Pr7_6";
             flowLayoutPanel2.ResumeLayout(false);
             flowLayoutPanel2.PerformLayout();
             flowLayoutPanel3.ResumeLayout(false);
@@ -207,7 +184,7 @@
         private Button buttonResult;
         private Button buttonReset;
         //private Label label3;
-        private TextBox textBoxSecond;
+        //private TextBox textBoxSecond;
         //private Label label4;
         //private TextBox textBoxEnd;
         private Label label5;
@@ -216,8 +193,8 @@
         private Button buttonBack;
         private FlowLayoutPanel flowLayoutPanel5;
         private Label labelResult;
-        private Label label1;
+        //private Label label1;
         private Label label2;
-        private TextBox textBoxFirst;
+        private TextBox textBoxInput;
     }
 }
