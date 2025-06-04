@@ -12,9 +12,8 @@
             char[] firstText = text1.ToArray().Distinct().ToArray();
             char[] secondText = text2.ToArray().Distinct().ToArray();
 
-            if (firstText.Length != secondText.Length) return false;
+            return new string(firstText) == new string(secondText);
 
-            return firstText.ToString() == secondText.ToString();
         }
 
         private void buttonResult_Click(object sender, EventArgs e)

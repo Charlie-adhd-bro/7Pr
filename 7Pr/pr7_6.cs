@@ -21,11 +21,26 @@
             }
 
             Array.Resize(ref charArray, index);
+            charArray = charArray.Distinct().ToArray();
+
+            MessageBox.Show(
+                       $"{new string(charArray)} Длина массива {charArray.Length}",
+                       "Ошибка ввода",
+                       MessageBoxButtons.OK,
+                       MessageBoxIcon.Error
+                   );
+
             Array.Sort(charArray);
+            MessageBox.Show(
+                      $"Отсортированный массив {new string(charArray)}",
+                      "Ошибка ввода",
+                      MessageBoxButtons.OK,
+                      MessageBoxIcon.Error
+                  );
 
             if (charArray.Length > 0)
             {
-                return charArray.Distinct().ToArray();
+                return charArray;
             }
             else
             {
@@ -39,7 +54,7 @@
             {
                 MessageBox.Show(
                        "Текстовое поле пустое.\n Введите как минимум один символ в поле",
-                       "Ошибка ввода", 
+                       "Ошибка ввода",
                        MessageBoxButtons.OK,
                        MessageBoxIcon.Error
                    );
@@ -48,8 +63,28 @@
 
             string text = textBoxInput.Text;
 
-            labelResult.Text = "Символьный массив в алфавитном порядке:\n" + new string(MakeCharArray(text)); 
+            labelResult.Text = "Символьный массив в алфавитном порядке:\n" 
+                + new string(MakeCharArray(text));
 
+            //с не буквенными символами
+            labelResult.Text += "\nСимвольный массив в алфавитном порядке:\n" 
+                + new string(MakeCharArray("Привет, мир6!"));
+
+            //алфавитный порядок только буквенные символы
+            labelResult.Text += "\nСимвольный массив в алфавитном порядке:\n"
+                + new string(MakeCharArray("abcdefg"));
+
+            //только буквенные символы в разнобой с несколькими одинаковыми символами
+            labelResult.Text += "\nСимвольный массив в алфавитном порядке:\n" 
+                + new string(MakeCharArray("aaaccbcccdefg"));
+
+            //без букв
+            labelResult.Text += "\nСимвольный массив в алфавитном порядке:\n" 
+                + new string(MakeCharArray("!@#$%"));
+
+            //не алфавитный порядок только буквенные символы
+            labelResult.Text += "\nСимвольный массив в алфавитном порядке:\n" 
+                + new string(MakeCharArray("gfedcba"));
         }
 
         private void buttonReset_Click(object sender, EventArgs e)

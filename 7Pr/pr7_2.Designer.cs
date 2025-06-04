@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Pr7_2));
             buttonResult = new Button();
             buttonReset = new Button();
             textBoxInput = new TextBox();
@@ -145,7 +146,7 @@
             labelResult.TabIndex = 11;
             labelResult.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // pr7_pr7_2
+            // Pr7_2
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -153,8 +154,9 @@
             Controls.Add(flowLayoutPanel3);
             Controls.Add(flowLayoutPanel2);
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5);
-            Name = "pr7_pr7_2";
+            Name = "Pr7_2";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Pr7_2";
             flowLayoutPanel2.ResumeLayout(false);

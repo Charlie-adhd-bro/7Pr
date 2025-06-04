@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(pr7_1));
             buttonResult = new Button();
             buttonReset = new Button();
             textBoxInput = new TextBox();
@@ -153,6 +154,7 @@
             Controls.Add(flowLayoutPanel3);
             Controls.Add(flowLayoutPanel2);
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5);
             Name = "pr7_1";
             StartPosition = FormStartPosition.CenterScreen;

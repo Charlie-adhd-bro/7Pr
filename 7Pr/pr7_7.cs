@@ -33,9 +33,9 @@
 
         private void buttonResult_Click(object sender, EventArgs e)
         {
-            if (textBoxText.Text.Length == 0 ||
-                textBoxPosition.Text.Length == 0 ||
-                textBoxCount.Text.Length == 0)
+            if (textBoxText.Text.Length == 0 
+                || textBoxPosition.Text.Length == 0 
+                || textBoxCount.Text.Length == 0)
             {
                 MessageBox.Show(
                        "Одно из текстовых полей пустое.\n Введите как минимум один символ во все поля",
@@ -48,9 +48,9 @@
 
             string text = textBoxText.Text;
 
-            if (!int.TryParse(textBoxPosition.Text, out int position) ||
-                position >= textBoxText.Text.Length ||
-                 position < 0)
+            if (!int.TryParse(textBoxPosition.Text, out int position) 
+                || position >= textBoxText.Text.Length 
+                || position < 0)
             {
                 MessageBox.Show(
                        "Ввод не числа или выход за предела массива.\n Введите еще раз",

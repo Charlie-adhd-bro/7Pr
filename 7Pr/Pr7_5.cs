@@ -37,10 +37,12 @@
 
         private void buttonResult_Click(object sender, EventArgs e)
         {
-            if (textBoxText.Text.Length == 0 || textBoxSymbol.Text.Length == 0)
+            if (textBoxText.Text.Length == 0 
+                || textBoxSymbol.Text.Length == 0)
             {
                 MessageBox.Show(
-                       "Одно из текстовых полей пустое.\n Введите как минимум один символ во все поля",
+                       "Одно из текстовых полей пустое." +
+                       "\n Введите как минимум один символ во все поля",
                        "Ошибка ввода",
                        MessageBoxButtons.OK,
                        MessageBoxIcon.Error
@@ -51,13 +53,31 @@
             string text = textBoxText.Text;
             char symbol = textBoxSymbol.Text[0];
 
-            labelResult.Text = "Символьный массив в алфавитном порядке:\n" + String.Join(", ", FindPositionsInArray(text, symbol));
+            labelResult.Text = "Позиции символа в тексте:\n" + 
+                String.Join(", ", FindPositionsInArray(text, symbol));
+
+            //несколько позиций 
+            labelResult.Text += "\nПозиции символа в тексте:\n" + 
+                String.Join(", ", FindPositionsInArray("Привет мир!", 'и'));
+
+            //одна позиция в конце
+            labelResult.Text += "\nПозиции символа в тексте:\n" + 
+                String.Join(", ", FindPositionsInArray("Привет мир!", '!'));
+
+            //одна позиция в начале
+            labelResult.Text += "\nПозиции символа в тексте:\n" + 
+                String.Join(", ", FindPositionsInArray("Привет мир!", 'П'));
+
+            //без нужного символа
+            labelResult.Text += "\nПозиции символа в тексте:\n" + 
+                String.Join(", ", FindPositionsInArray("Привет мир!", '@'));
 
         }
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
             textBoxText.Clear();
+            textBoxSymbol.Clear();
             labelResult.Text = "";
         }
 

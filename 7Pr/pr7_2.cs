@@ -1,7 +1,4 @@
-﻿using System.Linq;
-using static System.Net.Mime.MediaTypeNames;
-
-namespace _7Pr
+﻿namespace _7Pr
 {
     public partial class Pr7_2 : Form
     {

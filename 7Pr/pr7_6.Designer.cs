@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(pr7_6));
             buttonResult = new Button();
             buttonReset = new Button();
             label5 = new Label();
@@ -46,6 +47,7 @@
             // buttonResult
             // 
             buttonResult.AutoSize = true;
+            buttonResult.Cursor = Cursors.Hand;
             buttonResult.Location = new Point(13, 13);
             buttonResult.Name = "buttonResult";
             buttonResult.Size = new Size(106, 35);
@@ -57,6 +59,7 @@
             // buttonReset
             // 
             buttonReset.AutoSize = true;
+            buttonReset.Cursor = Cursors.Hand;
             buttonReset.Location = new Point(125, 13);
             buttonReset.Name = "buttonReset";
             buttonReset.Size = new Size(76, 35);
@@ -139,6 +142,7 @@
             // buttonBack
             // 
             buttonBack.AutoSize = true;
+            buttonBack.Cursor = Cursors.Hand;
             buttonBack.Location = new Point(207, 13);
             buttonBack.Name = "buttonBack";
             buttonBack.Size = new Size(111, 35);
@@ -166,6 +170,7 @@
             Controls.Add(flowLayoutPanel3);
             Controls.Add(flowLayoutPanel2);
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5);
             Name = "pr7_6";
             StartPosition = FormStartPosition.CenterScreen;
