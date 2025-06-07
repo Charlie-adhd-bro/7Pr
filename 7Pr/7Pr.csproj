@@ -10,11 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Update="pr7_10.cs" />
     <Compile Update="pr7_9.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="pr7_8.cs">
       <SubType>Form</SubType>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Compile>
     <Compile Update="pr7_7.cs">
       <SubType>Form</SubType>

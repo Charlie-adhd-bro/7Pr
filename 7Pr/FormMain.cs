@@ -72,9 +72,9 @@ namespace _7Pr
 
         private void button10_Click(object sender, EventArgs e)
         {
-            //this.Hide();
-            //pr7_10 mainForm = new();
-            //mainForm.Show();
+            this.Hide();
+            pr7_10 mainForm = new();
+            mainForm.Show();
         }
 
         private void buttonExit_Click(object sender, EventArgs e)

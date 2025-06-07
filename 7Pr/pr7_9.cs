@@ -1,5 +1,7 @@
-﻿using Microsoft.VisualBasic;
-using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace _7Pr
 {
@@ -10,14 +12,12 @@ namespace _7Pr
             InitializeComponent();
         }
 
-
         private void buttonResult_Click(object sender, EventArgs e)
         {
-            if (textBoxText.Text.Length == 0
-                || textBoxSymbol.Text.Length == 0)
+            if (textBoxText.Text.Length == 0 || textBoxSymbol.Text.Length == 0)
             {
                 MessageBox.Show(
-                       "Одно из текстовых полей пустое.\n Введите как минимум один символ во все поля",
+                       "Одно из текстовых полей пустое.\nВведите как минимум один символ во все поля",
                        "Ошибка ввода",
                        MessageBoxButtons.OK,
                        MessageBoxIcon.Error
@@ -25,10 +25,10 @@ namespace _7Pr
                 return;
             }
 
-            if( textBoxSymbol.Text.Length > 1)
+            if (textBoxSymbol.Text.Length > 1)
             {
                 MessageBox.Show(
-                       "Введено больше одного символа.\n Введите один символ в поле для символа",
+                       "Введено больше одного символа.\nВведите один символ в поле для символа",
                        "Ошибка ввода",
                        MessageBoxButtons.OK,
                        MessageBoxIcon.Error
@@ -36,16 +36,13 @@ namespace _7Pr
                 return;
             }
 
-            StringAndSymbol stringAndSymbol = new StringAndSymbol(textBoxText.Text, textBoxSymbol.Text[0]);
-
+            var stringAndSymbol = new StringAndSymbol(textBoxText.Text, textBoxSymbol.Text[0]);
             labelResult.Text = stringAndSymbol.ToString();
-
         }
 
         private void buttonReset_Click(object sender, EventArgs e)
         {
             textBoxText.Clear();
-
             textBoxSymbol.Clear();
             labelResult.Text = "";
         }
@@ -56,29 +53,44 @@ namespace _7Pr
             new FormMain().Show();
         }
 
-        class StringAndSymbol(string text, char symbol)
+        // Вложенный класс
+        class StringAndSymbol
         {
-            private char Symbol = symbol;
-            private string Text = text;
+            private char Symbol;
+            private string Text;
+
+            public StringAndSymbol(string text, char symbol)
+            {
+                Text = text;
+                Symbol = symbol;
+            }
 
             public string[] SubStringDivide()
-            {
-                int count = Text.Count(c => c == Symbol);
-                string[] strings = new string[count];
-                if (count > 0)
+            {            
+                List<string> parts = new List<string>();
+                int startIndex = 0;
+
+                for (int i = 0; i < Text.Length; i++)
                 {
-                    return strings = Text.Split(Symbol, StringSplitOptions.RemoveEmptyEntries);
-                   
+                    if (Text[i] == Symbol)
+                    { 
+                        parts.Add(Text.Substring(startIndex, i - startIndex + 1));
+                        startIndex = i + 1;
+                    }
                 }
-                else
+                
+                if (startIndex < Text.Length)
                 {
-                    return [$"Символ разделитель \"{Symbol}\" не найден в этом тексте"];
+                    parts.Add(Text.Substring(startIndex));
                 }
+
+                return parts.ToArray();
             }
 
             public override string ToString()
             {
-                return $"\nТекст: {Text},\nСимвол: {Symbol},\nПодстроки: {String.Join(", ", SubStringDivide())}";
+                return $"Текст: {Text}\nСимвол: {Symbol}\n" +
+                    $"Подстроки: {string.Join(", ", SubStringDivide())}";
             }
         }
     }
