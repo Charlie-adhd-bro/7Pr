@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(pr7_8));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(pr7_9));
             flowLayoutPanel7 = new FlowLayoutPanel();
             flowLayoutPanel8 = new FlowLayoutPanel();
             label2 = new Label();
@@ -235,7 +235,7 @@
             label5.Text = "Класс с текстовым полем и изменение этого поля";
             label5.TextAlign = ContentAlignment.TopCenter;
             // 
-            // pr7_8
+            // pr7_9
             // 
             AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -245,7 +245,7 @@
             Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Margin = new Padding(5);
-            Name = "pr7_8";
+            Name = "pr7_9";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Pr7_9";
             flowLayoutPanel7.ResumeLayout(false);

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic;
+using System.Linq;
 
 namespace _7Pr
 {
@@ -36,7 +37,8 @@ namespace _7Pr
             }
 
             StringAndSymbol stringAndSymbol = new StringAndSymbol(textBoxText.Text, textBoxSymbol.Text[0]);
-            labelResult.Text = stringAndSymbol.SubStringDivide().ToString();
+
+            labelResult.Text = stringAndSymbol.ToString();
 
         }
 
@@ -65,87 +67,19 @@ namespace _7Pr
                 string[] strings = new string[count];
                 if (count > 0)
                 {
-                    count--;
-                    for (int i = Text.Length - 1; i >= 0; i--)
-                    {
-                        if (Symbol == Text[i])
-                        {
-                            strings[count] = Text.Substring(i);
-                            count--;
-                            Text = Text.Substring(0, i);
-                        }
-                    }
+                    return strings = Text.Split(Symbol, StringSplitOptions.RemoveEmptyEntries);
+                   
                 }
                 else
                 {
-                    strings[1] = $"Символ разделитель \"{Symbol}\" не найден в этом тексте";
+                    return [$"Символ разделитель \"{Symbol}\" не найден в этом тексте"];
                 }
-                return ToString(strings);
             }
 
-            public override string ToString(string[] strings) 
+            public override string ToString()
             {
-                if (strings[1] == $"Символ разделитель \"{Symbol}\" не найден в этом тексте")
-                {
-                    return Text = strings[1];
-                }
-                Text = String.Join(", ", strings);
-                return Text; 
+                return $"\nТекст: {Text},\nСимвол: {Symbol},\nПодстроки: {String.Join(", ", SubStringDivide())}";
             }
         }
     }
 }
-/*Конечно! В стандартном методе `Split()` разделитель удаляется из результата. Чтобы оставить разделитель в полученных подстроках, нужно использовать другой подход.
-
-Вот один из способов — использовать регулярные выражения или вручную разбивать строку, сохраняя разделитель.
-
-### Решение с использованием `Regex.Split()` и захватывающих групп
-
-Можно использовать `Regex.Split()` с группами, чтобы оставить разделитель в результате.
-
-Пример:
-
-```csharp
-using System.Text.RegularExpressions;
-
-// В методе GetSubStrings() заменить на:
-
-public string[] GetSubStrings()
-{
-    // Создаем шаблон для поиска разделителя и его сохранения
-    string pattern = $"(\\{Symbol})"; // Экранирование, если Symbol — спецсимвол regex
-
-    // Если Symbol — спецсимвол regex, его нужно экранировать
-    if ("^$.*+?()[]{}|\"\\"
-        .Contains(Symbol))
-    {
-        pattern = $"(\\{Regex.Escape(Symbol.ToString())})";
-    }
-
-    var parts = Regex.Split(Text, pattern);
-    return parts;
-}
-```
-
-### Объяснение:
-- Используем `Regex.Split()` с группой `(\\{Symbol})`, чтобы разделить строку по символу и оставить его в результате.
-- В результате получим массив, где разделитель будет включен как отдельный элемент.
-
-### Полный пример метода:
-
-```csharp
-public string[] GetSubStrings()
-{
-    string pattern = $"({Regex.Escape(Symbol.ToString())})";
-    var parts = Regex.Split(Text, pattern);
-    return parts;
-}
-```
-
-### Что это даст:
-- Строка разбивается по символу, но сам символ остается в массиве как отдельный элемент.
-- Можно далее обрабатывать массив по необходимости.
-
----
-
-Если нужно — я могу помочь интегрировать это в ваш класс полностью.*/
