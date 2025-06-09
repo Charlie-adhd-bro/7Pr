@@ -1,6 +1,4 @@
-﻿using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
-
-namespace _7Pr
+﻿namespace _7Pr
 {
     public partial class pr7_10 : Form
     {
@@ -35,7 +33,7 @@ namespace _7Pr
                 ints[index] = new Random().Next(-10, 10);
             }
 
-            ArrayAndAvg array = new ArrayAndAvg(ints);
+            ArrayAndAvg array = new(ints);
 
             labelResult.Text = array.ToString();
         }
@@ -53,36 +51,6 @@ namespace _7Pr
             new FormMain().Show();
         }
 
-        class ArrayAndAvg
-        {
-            private static int[] Array;
-            public ArrayAndAvg(int[] array) //конструктор
-            {
-                Array = array;
-            }
-
-            public static float FindAvg()
-            {
-                if (Array == null || Array.Length == 0)
-                {
-                    return 0;
-                }
-                float avg = 0;
-
-                foreach (int num in Array)
-                {
-                    avg += num;
-                }
-
-                avg = ((float)Math.Round(avg / Array.Length, 2));
-                return avg;
-            }
-
-            public override string ToString()
-            {
-                return $"Массив из случайных чисел: {string.Join(", ", Array)}, " +
-                    $"\nСреднее значение: {FindAvg()}";
-            }
-        }
+        
     }
 }

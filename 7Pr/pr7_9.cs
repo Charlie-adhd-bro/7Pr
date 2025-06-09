@@ -36,8 +36,20 @@ namespace _7Pr
                 return;
             }
 
-            var stringAndSymbol = new StringAndSymbol(textBoxText.Text, textBoxSymbol.Text[0]);
+            StringAndSymbol stringAndSymbol = new StringAndSymbol(textBoxText.Text, textBoxSymbol.Text[0]);
             labelResult.Text = stringAndSymbol.ToString();
+
+            //разделяющий символ не найден в тексте
+            stringAndSymbol = new StringAndSymbol("привет мир", '5');
+            labelResult.Text += stringAndSymbol.ToString();
+
+            //один разделяющий символ в тексте
+            stringAndSymbol = new StringAndSymbol("привет мир", 'т');
+            labelResult.Text += stringAndSymbol.ToString();
+
+            //несколько разделяющих символов в тексте
+            stringAndSymbol = new StringAndSymbol("привет мир, ты прекрасен", 'р');
+            labelResult.Text += stringAndSymbol.ToString();
         }
 
         private void buttonReset_Click(object sender, EventArgs e)
@@ -53,45 +65,6 @@ namespace _7Pr
             new FormMain().Show();
         }
 
-        // Вложенный класс
-        class StringAndSymbol
-        {
-            private char Symbol;
-            private string Text;
-
-            public StringAndSymbol(string text, char symbol)
-            {
-                Text = text;
-                Symbol = symbol;
-            }
-
-            public string[] SubStringDivide()
-            {            
-                List<string> parts = new List<string>();
-                int startIndex = 0;
-
-                for (int i = 0; i < Text.Length; i++)
-                {
-                    if (Text[i] == Symbol)
-                    { 
-                        parts.Add(Text.Substring(startIndex, i - startIndex + 1));
-                        startIndex = i + 1;
-                    }
-                }
-                
-                if (startIndex < Text.Length)
-                {
-                    parts.Add(Text.Substring(startIndex));
-                }
-
-                return parts.ToArray();
-            }
-
-            public override string ToString()
-            {
-                return $"Текст: {Text}\nСимвол: {Symbol}\n" +
-                    $"Подстроки: {string.Join(", ", SubStringDivide())}";
-            }
-        }
+       
     }
 }
